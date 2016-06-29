@@ -12,9 +12,9 @@
         <title>Friends App</title>
     </head>
     <body>
-        <h1>We Made it</h1>
+        <h1>Access Friends list</h1>
         
-        After logging in, <a href="ShowFriends">Click here to see your friends</a>
+        <a href="ShowFriends">Click here to see your friends</a>
         
         
     </body>
