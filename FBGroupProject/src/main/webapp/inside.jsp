@@ -12,9 +12,10 @@
         <title>Friends App</title>
     </head>
     <body>
-        <h1>Access Friends list</h1>
+        <h1>Access Friends Data</h1>
         
-        <a href="ShowFriends">Click here to see your friends</a>
+        <p><a href="ShowFriends">Click here to see your friends</a></p>
+        <p><a href="ShowEmails">Click here to compile your contact email addresses</a></p>
         
         
     </body>
