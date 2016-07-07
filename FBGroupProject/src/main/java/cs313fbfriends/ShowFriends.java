@@ -8,9 +8,12 @@ package cs313fbfriends;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.Friend;
+import facebook4j.Reading;
 import facebook4j.ResponseList;
+import facebook4j.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,12 +77,28 @@ public class ShowFriends extends HttpServlet
              PrintWriter out = response.getWriter();
 
              try { 
-                  out.write("Your name is: " + facebook.getName() + "\n\n"); 
-                  ResponseList<Friend> list = facebook.getFriends(); 
+//                  User me;
+//                  URL myPict;
+//                  String mydate, myBio, myEmail, myGender;
+//                  me = facebook.getMe(new Reading().fields("email,birthday,bio,first_name,last_name,middle_name,gender"));
+//                  myPict = facebook.getPictureURL();
+//                  mydate = me.getBirthday();
+//                  myBio = me.getBio();
+//                  myEmail = me.getEmail();
+//                  myGender = me.getGender();
+                                
+                 
+                 
+                  out.write("Your name is: " + facebook.getName() + "\n\n");               
+                  ResponseList<Friend> list = facebook.getFriends(new Reading().fields("email,birthday,bio,name,first_name,last_name,middle_name,gender"));
                   
                   out.write("Friends\n" );
-                  for (Friend friend : list) { 
-                       out.write(friend.getName() + "\n"); 
+                  for (Friend friend : list) 
+                  { 
+                       String friendName = friend.getName(); 
+                       String friendGender = friend.getGender();
+                       String friendBday = friend.getBirthday();
+                       out.write(friendName + " "  + " " + friendBday + " " + friendGender + "\n"); 
                   }
 
              } catch (IllegalStateException e) { 
