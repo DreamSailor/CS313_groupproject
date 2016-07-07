@@ -13,6 +13,7 @@ import facebook4j.Friend;
 import facebook4j.IdNameEntity;
 import facebook4j.Location;
 import facebook4j.Picture;
+import facebook4j.Reading;
 import facebook4j.ResponseList;
 import facebook4j.User;
 import java.io.IOException;
@@ -42,6 +43,8 @@ public class ShowEmails extends HttpServlet {
     }
 
     private static class UserImplement implements facebook4j.User {
+
+        private Object facebook;
 
         public UserImplement() {
         }
@@ -143,8 +146,10 @@ public class ShowEmails extends HttpServlet {
 
         @Override
         public String getEmail() {
+
 //          I made it this far. Now what do I implement here?
-        
+//            Reading list = new Reading().fields("email");
+
             String email = null;
             
             return email;

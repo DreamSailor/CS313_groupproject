@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/* CSS for WDD-100 Site */
+
+body {
+    max-width: 850px;
+    margin: 0;
+    padding: 0;
+    background-color: #1e4386;
+    width: 100%;    
+    margin: 0 auto;
+} 
+
+header {
+    width: 100%;
+    height: 160px;
+    background-color: #ecedf0;
+}
+
+header img {
+    float: left;
+    width: 224px;
+    height: 160px;
+    margin-right: 15px;
+}
+
+header h1 { 
+    clear: right;
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: #7c8597;
+    font-weight: bold;
+}
+
+header h3 { 
+    clear: right;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: #7c8597;
+    font-weight: bold;
+}
+
+header p { 
+    clear: right;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: #7c8597;
+    font-weight: bold;
+}
+
+header p:first-child {
+    padding-top: 25px;
+}
+
+header p:last-child {
+    padding-bottom: 10px;
+}
+
+nav {
+    float: left;
+    width: 100%;
+    background-color: #C94A28;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+nav ul li a {
+    display: block;
+    float: left;
+    width: 13%;
+    padding: 20px;
+    color: #FDEEC7;
+    text-decoration: none;
+    text-align: center;
+    border-right: 3px solid #609cca;
+}
+
+nav ul li a:hover { 
+    background-color: #F9B72B; 
+}
+
+main {
+    clear: left;
+    background-color: #609cca;
+}
+
+main h2 {
+    color: #000;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+main h3 {
+    color: #000;
+    padding-left: 20px;
+}
+
+main h4 {
+    color: #000;
+    padding-left: 20px;
+}
+
+main p {
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
+main img {
+    width: 80%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+main ul {
+    margin: 0;
+}
+
+main ul li {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+main ul img {
+    width: 80%;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}
+
+footer {
+    float: left;
+    width: 100%;
+    text-align: center;
+    background-color: #1e4386;
+}
+
+footer p {
+    padding-right: 20px;
+    padding-left: 20px;
+    color: #609cca;
+}
+
+footer p:first-child {
+    padding-top: 5px;
+}
+
+footer p:last-child {
+    padding-bottom: 5px;
+}
