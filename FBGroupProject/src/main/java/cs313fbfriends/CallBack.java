@@ -78,9 +78,8 @@ public class CallBack extends HttpServlet
              e.printStackTrace(); 
         }
         
-        response.sendRedirect("inside.jsp"); 
-        
-        
+//        response.sendRedirect("inside.jsp");         
+        response.sendRedirect(request.getContextPath() + "/opener");
     }
 
     /**
