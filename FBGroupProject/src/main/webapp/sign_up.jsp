@@ -22,7 +22,7 @@
         <h1>Provide your contact information</h1>
         <form action="write_database" method="POST">
             <input type="hidden" name="fb_id" value="${fbdata.id}">
-            <strong>${fbdata.name}</strong><br>
+            <strong>${fbdata.name}</strong><br />
             Phone Number*: <br />
             <input type="text" name="phone" maxlength="10"/> TO_DO - check these inputs for errors<br /> <br /> 
             E-mail*:<br />
