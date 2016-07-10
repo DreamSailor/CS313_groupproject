@@ -44,7 +44,7 @@
             <br />
         </main> 
         <footer>
-            <p><strong>Disclaimer:</strong> This web site is presented as course work for WDD-100 at BYU-Idaho. 
+            <p><strong>Disclaimer:</strong> This web site is presented as course work for CS-313 at BYU-Idaho. 
             <p><strong>Review Committee Lead:</strong> Brother Lyon</p>
             <p><strong>App Developers:</strong> Blake Taylor, Jeffry Simpson, Jonny Job & Michael Cavey.</p>        
         </footer>

@@ -77,10 +77,10 @@ public class ShowFriends extends HttpServlet
              PrintWriter out = response.getWriter();
 
              try { 
-//                  User me;
+                  User me;
 //                  URL myPict;
 //                  String mydate, myBio, myEmail, myGender;
-//                  me = facebook.getMe(new Reading().fields("email,birthday,bio,first_name,last_name,middle_name,gender"));
+                  me = facebook.getMe(new Reading().fields("email,birthday,bio,first_name,last_name,middle_name,gender"));
 //                  myPict = facebook.getPictureURL();
 //                  mydate = me.getBirthday();
 //                  myBio = me.getBio();

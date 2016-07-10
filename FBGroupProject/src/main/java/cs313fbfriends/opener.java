@@ -5,6 +5,10 @@
  */
 package cs313fbfriends;
 
+import facebook4j.Facebook;
+import facebook4j.FacebookException;
+import facebook4j.Reading;
+import facebook4j.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -19,6 +23,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,11 +44,25 @@ public class opener extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) 
+        {
+            String user_fb_id=null;
                                                          
             // TODO - @Jeffry, recieve the user's facebook id here 
-            String user_fb_id = "117108935383689";
-//           String user_fb_id = "wrong_id";
+            Facebook facebook = (Facebook)request.getSession().getAttribute("facebook");
+            try
+            {
+                User me = facebook.getMe();
+                me = facebook.getMe(new Reading().fields("email,id,name"));
+                user_fb_id = me.getId();
+                
+                  HttpSession session = request.getSession();
+                  session.setAttribute("fbdata", me);
+             
+
+             } catch (FacebookException e) { 
+                  e.printStackTrace(); 
+             } 
            
             Boolean has_signed_up = false;
 
@@ -65,7 +84,7 @@ public class opener extends HttpServlet {
                         // TODO - put these in a separate file 
                         user = "myUser";
                         pass = "myPass";
-                        url = "jdbc:mysql://localhost/contacts_list";
+                        url = "jdbc:mysql://localhost:8889/contacts_list";
                     }
                                        
                     // Connect to the database 

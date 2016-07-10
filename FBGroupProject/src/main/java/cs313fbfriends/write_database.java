@@ -72,7 +72,7 @@ public class write_database extends HttpServlet {
             throws ServletException, IOException {
                            
             // TODO - Have this recieve the facebook id from a previous page 
-            String fb_id = "117108935383689";
+            String fb_id = request.getParameter("fb_id");
 
             String phone = request.getParameter("phone");
             String email = request.getParameter("email");
@@ -97,7 +97,7 @@ public class write_database extends HttpServlet {
                         // TODO - save these in a file so that they aren't so easy to see?
                         user = "myUser";
                         pass = "myPass";
-                        url = "jdbc:mysql://localhost/contacts_list";
+                        url = "jdbc:mysql://localhost:8889/contacts_list";
                     }
                                        
                     // Connect to the database 
