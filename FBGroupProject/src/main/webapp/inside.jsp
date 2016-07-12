@@ -34,7 +34,7 @@
         <main> 
             <h2>Friends Data</h2>
            
-            <button>Show Friends</button>
+            <p><button>Show Friends</button></p>
             <div id="friendslist"></div>
 
             <br />

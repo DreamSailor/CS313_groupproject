@@ -98,7 +98,7 @@ public class ShowFriends extends HttpServlet
                        String friendName = friend.getName(); 
                        String friendGender = friend.getGender();
                        String friendBday = friend.getBirthday();
-                       out.write(friendName + " "  + " " + friendBday + " " + friendGender + "<br/>"); 
+                       out.write("<p>" + friendName + " "  + " " + friendBday + " " + friendGender + "<br/>"); 
                   }
 
              } catch (IllegalStateException e) { 
