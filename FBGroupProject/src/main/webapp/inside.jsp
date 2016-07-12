@@ -12,6 +12,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Facebook Login</title> 
         <link href="wdd-css.css" type="text/css" rel="stylesheet" media="screen">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#friendslist").load('ShowFriends?process=u');
+            });
+        });
+        </script>
     </head> 
     <body> 
         <header>
@@ -25,8 +33,9 @@
 
         <main> 
             <h2>Friends Data</h2>
-
-            <p><a href="ShowFriends">Click here to see your friends</a></p>
+           
+            <button>Show Friends</button>
+            <div id="friendslist"></div>
 
             <br />
             <br />

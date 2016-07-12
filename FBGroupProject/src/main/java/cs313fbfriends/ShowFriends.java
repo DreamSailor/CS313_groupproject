@@ -80,7 +80,7 @@ public class ShowFriends extends HttpServlet
                   User me;
 //                  URL myPict;
 //                  String mydate, myBio, myEmail, myGender;
-                  me = facebook.getMe(new Reading().fields("email,birthday,bio,first_name,last_name,middle_name,gender"));
+//                  me = facebook.getMe(new Reading().fields("email,birthday,bio,first_name,last_name,middle_name,gender"));
 //                  myPict = facebook.getPictureURL();
 //                  mydate = me.getBirthday();
 //                  myBio = me.getBio();
@@ -89,16 +89,16 @@ public class ShowFriends extends HttpServlet
                                 
                  
                  
-                  out.write("Your name is: " + facebook.getName() + "\n\n");               
+//                  out.write("Your name is: " + facebook.getName() + "\n\n");               
                   ResponseList<Friend> list = facebook.getFriends(new Reading().fields("email,birthday,bio,name,first_name,last_name,middle_name,gender"));
                   
-                  out.write("Friends\n" );
+                  out.write("<h2>Friends</h2>" );
                   for (Friend friend : list) 
                   { 
                        String friendName = friend.getName(); 
                        String friendGender = friend.getGender();
                        String friendBday = friend.getBirthday();
-                       out.write(friendName + " "  + " " + friendBday + " " + friendGender + "\n"); 
+                       out.write(friendName + " "  + " " + friendBday + " " + friendGender + "<br/>"); 
                   }
 
              } catch (IllegalStateException e) { 
