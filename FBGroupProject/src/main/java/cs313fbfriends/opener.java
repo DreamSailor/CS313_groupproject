@@ -7,10 +7,12 @@ package cs313fbfriends;
 
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
+import facebook4j.PictureSize;
 import facebook4j.Reading;
 import facebook4j.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -53,11 +55,14 @@ public class opener extends HttpServlet {
             try
             {
                 User me = facebook.getMe();
-                me = facebook.getMe(new Reading().fields("email,id,name"));
+                URL myPict = facebook.getPictureURL();
+                myPict = facebook.getPictureURL(PictureSize.large);
+                me = facebook.getMe(new Reading().fields("email,id,name,location"));
                 user_fb_id = me.getId();
                 
                   HttpSession session = request.getSession();
                   session.setAttribute("fbdata", me);
+                  session.setAttribute("userpict",myPict);
              
 
              } catch (FacebookException e) { 

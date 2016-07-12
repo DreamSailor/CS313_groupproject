@@ -10,16 +10,16 @@
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Facebook Demo Login</title> 
+        <title>Facebook Login</title> 
         <link href="wdd-css.css" type="text/css" rel="stylesheet" media="screen">
     </head> 
     <body> 
         <header>
-            <img src="kmquison.png" alt="Profile Image"/>
+            <img src="${userpict.protocol}://${userpict.host}${userpict.file}" alt="Profile Image"/>
             <div>
-                <h1>Karen M. Quison</h1>
-                <h3>Your Information Here</h3>
-                <p>More Information Here</p>
+                <h1>${fbdata.name}</h1>
+                <h3>${fbdata.email}</h3>
+                <p>${fbdata.location}</p>
             </div>
         </header>
 
