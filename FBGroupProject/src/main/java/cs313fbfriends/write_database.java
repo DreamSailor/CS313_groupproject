@@ -78,6 +78,9 @@ public class write_database extends HttpServlet {
             String email = request.getParameter("email");
             String address = request.getParameter("address");
             
+             request.getSession().setAttribute("myPhone", phone);
+             request.getSession().setAttribute("myAddress", address);
+            
             try { 
 
                 // Connect to the database 

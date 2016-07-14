@@ -144,7 +144,7 @@ public class ShowFriends extends HttpServlet
 //                                + friendGender + "<br/>"); 
                     }
 
-                myConnection.close();   // Note: Once this is closed, it will not let you access it again until it is created again, if added features require us to access the database again after this point, we may no longer be able to store the connection as a session variable
+               // myConnection.close();   // Note: Once this is closed, it will not let you access it again until it is created again, if added features require us to access the database again after this point, we may no longer be able to store the connection as a session variable
                     
                 } catch (SQLException e){
                     out.println("Error: " + e);

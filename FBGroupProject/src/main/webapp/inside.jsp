@@ -36,7 +36,7 @@
            
             <p>
                 <button id="friendsBtn">Show Friends</button>
-                <button id="mydataBtn">Update Info</button>
+                <a href="sign_up.jsp?update=Y">Update Info</a>
             
             </p>
             <div id="friendslist"></div>

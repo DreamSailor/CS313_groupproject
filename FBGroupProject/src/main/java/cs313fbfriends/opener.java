@@ -107,8 +107,17 @@ public class opener extends HttpServlet {
                     while(r.next() && has_signed_up == false) {
                         String db_fb_id = r.getString("fb_id");
  
-                        if(db_fb_id.equals(user_fb_id)){
+                        if(db_fb_id.equals(user_fb_id))
+                        {
                             has_signed_up = true;
+                            request.getSession().setAttribute("myTest", "test for value");
+                            r = myStatement.executeQuery("Select address, phone_number, email, fb_id FROM contacts WHERE fb_id = " + user_fb_id);
+                            if(r.next())
+                            {
+                                request.getSession().setAttribute("myPhone", r.getString("phone_number"));
+                                request.getSession().setAttribute("myAddress", r.getString("address"));
+                            }
+                            
                         }
                     }
                     
