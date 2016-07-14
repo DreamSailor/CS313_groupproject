@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>
         $(document).ready(function(){
-            $("button").click(function(){
+            $("#friendsBtn").click(function(){
                 $("#friendslist").load('ShowFriends?process=u');
             });
         });
@@ -34,7 +34,11 @@
         <main> 
             <h2>Friends Data</h2>
            
-            <p><button>Show Friends</button></p>
+            <p>
+                <button id="friendsBtn">Show Friends</button>
+                <button id="mydataBtn">Update Info</button>
+            
+            </p>
             <div id="friendslist"></div>
 
             <br />
