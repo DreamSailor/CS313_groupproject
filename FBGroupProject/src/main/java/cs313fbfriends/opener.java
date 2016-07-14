@@ -90,10 +90,12 @@ public class opener extends HttpServlet {
                         user = "myUser";
                         pass = "myPass";
                         url = "jdbc:mysql://localhost:8889/contacts_list";
+//                        url = "jdbc:mysql://localhost/contacts_list";       // For WAMP users 
                     }
                                        
                     // Connect to the database 
                     Connection myConnection = DriverManager.getConnection(url,user,pass);
+                    request.getSession().setAttribute("connection", myConnection);
 
                     // Use MySQL query
                     Statement myStatement = myConnection.createStatement();
@@ -111,7 +113,7 @@ public class opener extends HttpServlet {
                     }
                     
                     myStatement.close();
-                    myConnection.close();
+//                    myConnection.close(); // This needs to be accessed for thr friends list, TODO - is that ok?
                     r.close();
 
                 } catch (SQLException e){

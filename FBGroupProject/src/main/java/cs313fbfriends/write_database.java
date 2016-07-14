@@ -78,46 +78,22 @@ public class write_database extends HttpServlet {
             String email = request.getParameter("email");
             String address = request.getParameter("address");
             
-            try {
-                // Registers the driver?   See   http://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
-                Class.forName("com.mysql.jdbc.Driver");
+            try { 
 
-                // TODO - Make all connections to the database happen in one place
-                try { 
-                    // Set the connection parameters based on whether you are in the home environment or openshift
-                    String user = null;
-                    String pass = null;
-                    String url = null;
-                     
-                    if(System.getenv("OPENSHIFT_MYSQL_DB_USERNAME") != null) {
-                        user = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-                        pass = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-                        url = "jdbc:mysql://" + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":" + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/contacts_list";
-                    } else {
-                        // TODO - save these in a file so that they aren't so easy to see?
-                        user = "myUser";
-                        pass = "myPass";
-                        url = "jdbc:mysql://localhost:8889/contacts_list";
-                    }
-                                       
-                    // Connect to the database 
-                    Connection myConnection = DriverManager.getConnection(url,user,pass);
+                // Connect to the database 
+                Connection myConnection = (Connection)request.getSession().getAttribute("connection");
 
-                    // Write the new user information to the database
-                    Statement myStatement = myConnection.createStatement();
-                    myStatement.executeUpdate("INSERT INTO contacts VALUES (NULL,'" + fb_id + "','" + phone + "','" + email + "','" + address + "')");
-                    
-                    myStatement.close();
-                    myConnection.close();
+                // Write the new user information to the database
+                Statement myStatement = myConnection.createStatement();
+                myStatement.executeUpdate("INSERT INTO contacts VALUES (NULL,'" + fb_id + "','" + phone + "','" + email + "','" + address + "')");
 
-                } catch (SQLException e){
-                    request.setAttribute("error", "SQL exception" + e);
-                    request.getRequestDispatcher("/failPage.jsp").forward(request, response);
-                }
-            } catch (ClassNotFoundException e) {
-                request.setAttribute("error", "failed to register driver?" + e);
+                myStatement.close();
+//                    myConnection.close();   // This needs to be open for later to show the friends list,  TODO - is that ok?
+
+            } catch (SQLException e){
+                request.setAttribute("error", "SQL exception" + e);
                 request.getRequestDispatcher("/failPage.jsp").forward(request, response);
-            }                
+            }
                         
             response.sendRedirect("inside.jsp");
                       

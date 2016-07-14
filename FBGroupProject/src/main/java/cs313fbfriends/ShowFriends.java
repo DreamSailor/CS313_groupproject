@@ -15,6 +15,11 @@ import facebook4j.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -82,9 +87,16 @@ public class ShowFriends extends HttpServlet
                  //Get list of frends from Facebook
                   ResponseList<Friend> list = facebook.getFriends(new Reading().fields("id,birthday,bio,name,first_name,last_name,middle_name,gender"));
                   
-                  out.write("<h2>Friends</h2>" );
-                  for (Friend friend : list) 
-                  { 
+                try { 
+                     
+                    // Access the connection to the database as established in opener.java
+                    Connection myConnection = (Connection)request.getSession().getAttribute("connection");                                    
+                  
+                    out.write("<h2>Friends</h2>" );
+                    
+                    // For each friend...
+                    for (Friend friend : list) 
+                    { 
                        String friendID = friend.getId();                      //Get the current Facebook Friend ID
                        String friendName = friend.getName();                  //Get the current Facebook Friend Name
                        
@@ -95,17 +107,50 @@ public class ShowFriends extends HttpServlet
 
                     //@Blake we can get various image sizes depending on what you want.
                        
-                       
-                       //@jonny add code here to Get from database?  email, phone, address
-                       
+                        // Use MySQL query to access database info
+                        Statement myStatement = myConnection.createStatement();
+                        ResultSet r = myStatement.executeQuery("Select address, phone_number, email, fb_id FROM contacts WHERE fb_id = " + friendID);
+                                        
+                        String db_fb_id = "none";
+                        String address = "none";
+                        String phone_number = "none";
+                        String email = "none";
+                        
+                        // There should only be one result, loop once
+                        while(r.next()) {  
+                            
+                            // Store the database values
+                            db_fb_id = r.getString("fb_id"); 
+                            phone_number = r.getString("phone_number");                            
+                            email = r.getString("email");                            
+                            address = r.getString("address");
+                            
+                            // Have something to show for an empty address
+                            if (address.equals("")){
+                                address = "...";
+                            }
+ 
+                        }                                                 
+                 
+                        myStatement.close();                                                                                            
                        
                        //@blake Here is where we need the table added
                        out.write("<p> <img id=\"picts\" src=\"" + profilePict.getProtocol() + "://" 
-                                 + profilePict.getHost() + profilePict.getFile() + "\" height=\"50\" width=\"50\">" 
-                                 + friendName + " "  + " " + friendBday + " " 
-                                 + friendGender + "<br/>"); 
-                  }
+                                + profilePict.getHost() + profilePict.getFile() + "\" height=\"50\" width=\"50\">" 
+                                + "<br />" + friendName + " - " + friendBday + " <br />" 
+                                + "E-mail  : " + email + " <br /> "  
+                                + "Phone   : " + phone_number + "<br /> "                                
+                                + "Address : " + address + " " + "<br /><br />");
+//                                + friendGender + "<br/>"); 
+                    }
 
+                myConnection.close();   // Note: Once this is closed, it will not let you access it again until it is created again, if added features require us to access the database again after this point, we may no longer be able to store the connection as a session variable
+                    
+                } catch (SQLException e){
+                    out.println("Error: " + e);
+                    request.setAttribute("error", "SQL exception: " + e);
+                    request.getRequestDispatcher("/failPage.jsp").forward(request, response);
+                }
              } catch (IllegalStateException e) { 
                   e.printStackTrace(); 
              } catch (FacebookException e) { 
