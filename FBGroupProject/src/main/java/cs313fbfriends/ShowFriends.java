@@ -8,6 +8,7 @@ package cs313fbfriends;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.Friend;
+import facebook4j.PictureSize;
 import facebook4j.Reading;
 import facebook4j.ResponseList;
 import facebook4j.User;
@@ -77,28 +78,32 @@ public class ShowFriends extends HttpServlet
              PrintWriter out = response.getWriter();
 
              try { 
-                  User me;
-//                  URL myPict;
-//                  String mydate, myBio, myEmail, myGender;
-//                  me = facebook.getMe(new Reading().fields("email,birthday,bio,first_name,last_name,middle_name,gender"));
-//                  myPict = facebook.getPictureURL();
-//                  mydate = me.getBirthday();
-//                  myBio = me.getBio();
-//                  myEmail = me.getEmail();
-//                  myGender = me.getGender();
-                                
                  
-                 
-//                  out.write("Your name is: " + facebook.getName() + "\n\n");               
-                  ResponseList<Friend> list = facebook.getFriends(new Reading().fields("email,birthday,bio,name,first_name,last_name,middle_name,gender"));
+                 //Get list of frends from Facebook
+                  ResponseList<Friend> list = facebook.getFriends(new Reading().fields("id,birthday,bio,name,first_name,last_name,middle_name,gender"));
                   
                   out.write("<h2>Friends</h2>" );
                   for (Friend friend : list) 
                   { 
-                       String friendName = friend.getName(); 
+                       String friendID = friend.getId();                      //Get the current Facebook Friend ID
+                       String friendName = friend.getName();                  //Get the current Facebook Friend Name
+                       
                        String friendGender = friend.getGender();
                        String friendBday = friend.getBirthday();
-                       out.write("<p>" + friendName + " "  + " " + friendBday + " " + friendGender + "<br/>"); 
+                      // URL profilePict = facebook.getPictureURL();           //Get the current Facebook Friend profile Pict
+                       URL profilePict = facebook.getPictureURL(friendID, PictureSize.small);   
+
+                    //@Blake we can get various image sizes depending on what you want.
+                       
+                       
+                       //@jonny add code here to Get from database?  email, phone, address
+                       
+                       
+                       //@blake Here is where we need the table added
+                       out.write("<p> <img id=\"picts\" src=\"" + profilePict.getProtocol() + "://" 
+                                 + profilePict.getHost() + profilePict.getFile() + "\" height=\"50\" width=\"50\">" 
+                                 + friendName + " "  + " " + friendBday + " " 
+                                 + friendGender + "<br/>"); 
                   }
 
              } catch (IllegalStateException e) { 

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* CSS for WDD-100 Site */
+/* CSS for CS-313 Site */
 
 body {
     max-width: 850px;
@@ -129,7 +129,6 @@ main p {
 }
 
 main img {
-    width: 80%;
     padding-left: 40px;
     padding-right: 40px;
 }
