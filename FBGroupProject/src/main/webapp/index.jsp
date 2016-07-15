@@ -15,7 +15,7 @@
     </head> 
     <body> 
         <header>
-            <img src="wdd-logo.png" alt="Graphic Logo"/>
+            <img src="mvp-logo.png" alt="Graphic Logo"/>
             <div>
                 <h1>CS313 Friends MVP</h1>
                 <h3>Facebook-API App Project Demo</h3>
@@ -31,12 +31,37 @@
             </div> 
 
             <h2>How it works</h2>
-            <p>Just login to Facebook through our link (above) and you will authorize 
-                this app to organize your friend's information. When your friends also
-                login using this app, your information becomes sharable.</p>
-            <p>To demonstrate the app use this login - <br />
-                User: karen_rnoccko_qinson@tfbnw.net<br />
-                Password: pass313</p>
+            <p>Just login to Facebook through our link (above) and you will authorize this 
+                app to organize your friends' information. After login, you will be given the  
+                opportunity to input the information you want to share with your friends. Then 
+                when your friends login using the app, your information will be shared with them.</p>
+            <p><strong>To demonstrate the app</strong>, use any of the following logins - <br /> <br />
+                <strong>Users:</strong> <br />
+                mark_nsxtvtw_warmanwitz@tfbnw.net <br />
+                karen_rnoccko_qinson@tfbnw.net <br />
+                bob_bqtpczr_wongwitz@tfbnw.net <br />
+                robert_yivdlif_romanescu@tfbnw.net <br />
+                mary_zmxibqa_bowerssen@tfbnw.net <br />
+                linda_emmvxfy_changson@tfbnw.net <br />
+                will_ttgyocr_narayananstein@tfbnw.net <br />
+                james_buggwjb_bharambeberg@tfbnw.net <br />
+                tom_eouxgro_martinazziwitz@tfbnw.net <br />
+                richard_lhgopyg_sadansky@tfbnw.net <br />
+                rick_ixugpjd_wongberg@tfbnw.net <br />
+                donna_rprcrvl_letuchyberg@tfbnw.net <br />
+                thomas_axhqzti_moiduson@tfbnw.net <br />
+                dorothy_vvesrzv_carrieroman@tfbnw.net <br />
+                will_plabbgy_okelolason@tfbnw.net <br />
+                htelzad_sidhuson_1466643592@tfbnw.net <br />
+                yzsicfq_carrieroescu_1466643560@tfbnw.net <br />
+                ipgblfd_chengwitz_1466643557@tfbnw.net <br />
+                mhahkhf_moidusen_1466643555@tfbnw.net <br />
+                hmwqzuw_shepardsky_1466643558@tfbnw.net <br />
+                bill_ohvzzmm_sidhuescu@tfbnw.net<br /> <br />
+                <strong>Common Password:</strong> pass313</p>
+            
+            <p><strong>To verify the app</strong>, make note of one of the friends of your login persona and then
+                login with that friend's name. Check to see if your input information is shared. </p>
 
             <h2>Contact Us</h2>
             <p>Your feedback is valuable to us. Please email us at <a href="index.jsp">friends.app@mvp.com</a></p>
