@@ -93,7 +93,15 @@ public class ShowFriends extends HttpServlet
                     Connection myConnection = (Connection)request.getSession().getAttribute("connection");                                    
                   
                     out.write("<h2>Friends</h2>" );
-                    
+                    out.write("<table style=\'width:100%\'>");
+                    out.write("<tr>");
+                    out.write("<th>Picture</th>");
+                    out.write("<th>Name</th>");
+                    out.write("<th>Phone</th>");
+                    out.write("<th>E-Mail</th>");
+                    out.write("<th>Birthday</th>");
+                    out.write("<th>Address</th>");
+                    out.write("</tr>");
                     // For each friend...
                     for (Friend friend : list) 
                     { 
@@ -135,14 +143,18 @@ public class ShowFriends extends HttpServlet
                         myStatement.close();                                                                                            
                        
                        //@blake Here is where we need the table added
-                       out.write("<p> <img id=\"picts\" src=\"" + profilePict.getProtocol() + "://" 
-                                + profilePict.getHost() + profilePict.getFile() + "\" height=\"50\" width=\"50\">" 
-                                + "<br />" + friendName + " - " + friendBday + " <br />" 
-                                + "E-mail  : " + email + " <br /> "  
-                                + "Phone   : " + phone_number + "<br /> "                                
-                                + "Address : " + address + " " + "<br /><br />");
+                       out.write("<tr>");
+                       out.write("<td> <img id=\"picts\" src=\"" + profilePict.getProtocol() + "://" 
+                                + profilePict.getHost() + profilePict.getFile() + "\" height=\"50\" width=\"50\"></td>");
+                        out.write("<td>" + friendName + "</td>");
+                        out.write("<td>" + phone_number + "</td>");
+                        out.write("<td>" + email + "</td>");  
+                        out.write("<td>" + friendBday + "</td>");                                
+                        out.write("<td>" + address + "</td>");
+                        out.write("</tr>");
 //                                + friendGender + "<br/>"); 
                     }
+                    out.write("</table>");
 
                // myConnection.close();   // Note: Once this is closed, it will not let you access it again until it is created again, if added features require us to access the database again after this point, we may no longer be able to store the connection as a session variable
                     
