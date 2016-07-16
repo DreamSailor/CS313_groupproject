@@ -80,16 +80,30 @@ public class write_database extends HttpServlet {
             
              request.getSession().setAttribute("myPhone", phone);
              request.getSession().setAttribute("myAddress", address);
+                     
+             
             
             try { 
 
                 // Connect to the database 
                 Connection myConnection = (Connection)request.getSession().getAttribute("connection");
-
-                // Write the new user information to the database
+                
+                //Check if the record exists
                 Statement myStatement = myConnection.createStatement();
-                myStatement.executeUpdate("INSERT INTO contacts VALUES (NULL,'" + fb_id + "','" + phone + "','" + email + "','" + address + "')");
-
+                 ResultSet r = myStatement.executeQuery("Select fb_id FROM contacts WHERE fb_id = " + fb_id);
+                 
+                 if(r.next())  //found one
+                 {
+                    myStatement = myConnection.createStatement();
+                    myStatement.executeUpdate("UPDATE contacts SET email = '" + email + "',phone_number='" + phone + "',address='" + address + "' WHERE fb_id = " + fb_id);                     
+                 }
+                 else //no record found in the DB
+                 {
+                    // Write the new user information to the database
+                    myStatement = myConnection.createStatement();
+                    myStatement.executeUpdate("INSERT INTO contacts VALUES (NULL,'" + fb_id + "','" + phone + "','" + email + "','" + address + "')");
+                 }
+                 
                 myStatement.close();
 //                    myConnection.close();   // This needs to be open for later to show the friends list,  TODO - is that ok?
 

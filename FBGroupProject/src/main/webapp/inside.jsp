@@ -25,6 +25,11 @@
                 window.location.href = "sign_up.jsp?update=Y";
             }
         </script> 
+         <script>
+            function ReturntoStart() {
+                window.location.href = "index.jsp";
+            }
+        </script> 
     </head> 
     <body> 
         <header>
@@ -42,8 +47,8 @@
             <p>
                 <button id="friendsBtn">Show Friends</button>
                 <button id="updateBtn" onclick="Update()">Update Info</button>
-                <!-- <a href="sign_up.jsp?update=Y">Update Info</a>  -->
-            
+                 <button id="returnBtn" onclick="ReturntoStart()">Return to Start</button>
+
             </p>
             <div id="friendslist"></div>
 
