@@ -20,6 +20,11 @@
             });
         });
         </script>
+        <script>
+            function Update() {
+                window.location.href = "sign_up.jsp?update=Y";
+            }
+        </script> 
     </head> 
     <body> 
         <header>
@@ -36,7 +41,8 @@
            
             <p>
                 <button id="friendsBtn">Show Friends</button>
-                <a href="sign_up.jsp?update=Y">Update Info</a>
+                <button id="updateBtn" onclick="Update()">Update Info</button>
+                <!-- <a href="sign_up.jsp?update=Y">Update Info</a>  -->
             
             </p>
             <div id="friendslist"></div>

@@ -15,7 +15,7 @@
         <title>Sign Up</title>
         <link href="main.css" type="text/css" rel="stylesheet" media="screen">
         <script>
-            function skipLogin() {
+            function skipDBUpdate() {
                 window.location.href = "inside.jsp";
             }
         </script>                    
@@ -23,12 +23,12 @@
     <body>
         <% 
             Object phone ="",email ="", address = "";
-            String update = request.getParameter("update");
+            Object update = request.getParameter("update");
             if(update != null)
             {
                     phone = session.getAttribute("myPhone");
                     address = session.getAttribute("myAddress");
-
+              
             }
 
         
@@ -43,19 +43,22 @@
         </header>
         <main>
                 <h1>Provide your contact information</h1>
+                <p>Adding your Phone Number, Email (from Facebook) and Address will allow only your friends to see it.
             <div id="indent">
                 <form action="write_database" method="POST">
                     <input type="hidden" name="fb_id" value="${fbdata.id}">
-                    <strong>${fbdata.name}</strong><br />
-                    Phone Number*: <br />
-                    <input type="text" name="phone" maxlength="10" value="<%=phone%>"/> TO_DO - check these inputs for errors<br /> <br /> 
-                    E-mail*:<br />
-                    <input type="text" name="email" maxlength="255" value="${fbdata.email}"/> <br /><br /> 
-                    Address:<br />
+                    <input type="hidden" name="email" value="${fbdata.email}">
+                    <strong>${fbdata.name}</strong><br /><br />
+                    <strong> E-mail:</strong> ${fbdata.email}<br /><italic>(Retrieved from your FaceBook login)</italic><br /><br />
+                     
+                    <strong>Phone Number:</strong>
+                    <input type="text" name="phone" maxlength="10" value="<%=phone%>"/><br /> <br /> 
+                   
+                    <strong>Address:</strong><br />
                     <textarea type="password" name="address" maxlength="255" /><%=address%></textarea><br /><br /> 
-                    <input type="submit" value="Finish" />
+                    <input type="submit" value="Finish" /><button type=button" onclick="skipDBUpdate()">Cancel</button>        
                 </form>
-                <p><br /><button type=button" onclick="skipLogin()">Temp: Skip Sign Up</button></p>
+                <p>
             </div>
         </main>
         <footer>

@@ -27,7 +27,7 @@
             <p>This app will help you and your Facebook friends share profile  
                 data that exists on Facebook, but is not easily transfered.</p>
             <div> 
-                <p><a href="SignIn">Click here to login with Facebook</a></p>
+                <p><a href="SignIn"><img src="facebook-login-button.png"></a></p>
             </div> 
 
             <h2>How it works</h2>
