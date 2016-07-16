@@ -18,8 +18,22 @@
             function skipDBUpdate() {
                 window.location.href = "inside.jsp";
             }
-        </script>                    
-    </head>x1
+        </script>
+        <script>
+            function validatePhone(myField, thisClass)
+            {
+
+                 //Check for valid SSN.
+                if((myField.search(/^\s*\d{10}\s*$/)) == 0)
+                {
+                    document.getElementsByClassName(thisClass)[0].style.visibility = 'hidden';
+                }
+                else
+                    document.getElementsByClassName(thisClass)[0].style.visibility = 'visible';
+
+            }
+         </script>
+    </head>
     <body>
         <% 
             Object phone ="",email ="", address = "";
@@ -45,15 +59,21 @@
                 <h1>Provide your contact information</h1>
                 <p>Adding your Phone Number, Email (from Facebook) and Address will allow only your friends to see it.
             <div id="indent">
-                <form action="write_database" method="POST">
+                <form  action="write_database" method="POST">
                     <input type="hidden" name="fb_id" value="${fbdata.id}">
                     <input type="hidden" name="email" value="${fbdata.email}">
-                    <strong>${fbdata.name}</strong><br /><br />
-                    <strong> E-mail:</strong> ${fbdata.email}<br /><italic>(Retrieved from your FaceBook login)</italic><br /><br />
-                     
+                    <strong>${fbdata.name}</strong>
+                    <p>
+                    <italic>Retrieved from your FaceBook login</italic><br />
+                    
+                    <strong>E-mail:</strong> ${fbdata.email}<br />
+                    <strong>Birthday:</strong> ${fbdata.birthday}<br />
+                    <p>
                     <strong>Phone Number:</strong>
-                    <input type="text" name="phone" maxlength="10" value="<%=phone%>"/><br /> <br /> 
-                   
+                    <input type="text" name="phone" maxlength="10" value="<%=phone%>" onblur="validatePhone(this.value,'phoneErr')"/> 
+                    <span class="phoneErr" style='color:red; visibility: hidden;'>Please enter only digits (no hyphen or letters)</span>
+                    <br /> <br />
+                     
                     <strong>Address:</strong><br />
                     <textarea type="password" name="address" maxlength="255" /><%=address%></textarea><br /><br /> 
                     <input type="submit" value="Finish" /><button type=button" onclick="skipDBUpdate()">Cancel</button>        

@@ -33,24 +33,25 @@
 
             <h2>App Store Information</h2>
             <P>In April 2015 Facebook started limiting applications ability to find data about your friends.
-                They also require friends to "accept" a given app before they will display data.
+                They also require friends to "accept" a given app before they will display their data.
                 Our applications allows friends to share their contact information with each other outside of
-                Facebook.
+                Facebook via an SQL database.
                 
-            <p>Login to Facebook through the link (above) and you will authorize this 
+            <p>When you login to Facebook through the link (above) and you will authorize this 
                 application to share information with your friends.   After login, you will be given the  
                 opportunity to input the additonal information you want to share with your friends. Then 
-                when your friends login using the app, your information will be visible to them.</p>
+                when your friends also login using the application, your information will be visible to them.</p>
             
             <p class="warning">Login Accounts</p>
             <p>As noted above, you will only see Friends information if they have ALSO accepted our application.
                 Since this is a class assignment and since most of us in this class are not "friends" on facebook,
                 we have created a set of "test" users that are already friends with each other.   This is done via 
                 Facebook's developer site.  
-            <p>If you login with your own Facebook profile and NOT one of the test users, you will see nothing, 
-            because none of your friends will have previously accepted our application.</p>
+            <p>If you login with your own Facebook profile and NOT one of the test users below, 
+                you will see nothing and it will be a lonely place, 
+            because none of yourfriends will have previously used our application.</p>
             
-            <p class='warning'>To demonstrate the functionality of this app please login with and of the following logins:<p /> <br />
+            <p class='warning'>To demonstrate the functionality of this app please login with any of the following logins:<p /> <br />
                 <strong>User Email:</strong> <br />
                 mark_nsxtvtw_warmanwitz@tfbnw.net <br />
                 karen_rnoccko_qinson@tfbnw.net <br />

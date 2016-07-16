@@ -57,7 +57,7 @@ public class opener extends HttpServlet {
                 User me = facebook.getMe();
                 URL myPict = facebook.getPictureURL();
                 myPict = facebook.getPictureURL(PictureSize.large);
-                me = facebook.getMe(new Reading().fields("email,id,name,location"));
+                me = facebook.getMe(new Reading().fields("email,id,name,birthday,location"));
                 user_fb_id = me.getId();
                 
                   HttpSession session = request.getSession();

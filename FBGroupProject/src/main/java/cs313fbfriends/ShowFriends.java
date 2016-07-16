@@ -92,15 +92,14 @@ public class ShowFriends extends HttpServlet
                     // Access the connection to the database as established in opener.java
                     Connection myConnection = (Connection)request.getSession().getAttribute("connection");                                    
                   
-                    out.write("<h2>My FriendsData</h2>" );
-                    out.write("Information availble from FaceBook and from this App's Database <p>");
+                    out.write("<h2>My Friend's Data</h2>" );
                     out.write("<table style=\'width:100%\'>");
                     out.write("<tr>");
-                    out.write("<th>Picture</th>");
+                    out.write("<th>Profile Picture*</th>");
                     out.write("<th>Name</th>");
                     out.write("<th>Phone</th>");
-                    out.write("<th>E-Mail</th>");
-                    out.write("<th>Birthday</th>");
+                    out.write("<th>E-Mail*</th>");
+                    out.write("<th>Birthday*</th>");
                     out.write("<th>Address</th>");
                     out.write("</tr>");
                     // For each friend...
@@ -156,6 +155,8 @@ public class ShowFriends extends HttpServlet
 //                                + friendGender + "<br/>"); 
                     }
                     out.write("</table>");
+                    out.write("Field with an * indicate that information came from Facebook other fields come from the application database, assuming your friend has entered it. <p>");
+                    
 
                // myConnection.close();   // Note: Once this is closed, it will not let you access it again until it is created again, if added features require us to access the database again after this point, we may no longer be able to store the connection as a session variable
                     
