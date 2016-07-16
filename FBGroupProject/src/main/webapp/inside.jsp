@@ -42,18 +42,12 @@
         </header>
 
         <main> 
-            <h2>Friends Data</h2>
-           
             <p>
-                <button id="friendsBtn">Show Friends</button>
+            <center>  <button id="friendsBtn">Show Friends</button>
                 <button id="updateBtn" onclick="Update()">Update Info</button>
                  <button id="returnBtn" onclick="ReturntoStart()">Return to Start</button>
-
-            </p>
+             </center>
             <div id="friendslist"></div>
-
-            <br />
-            <br />
         </main> 
         <footer>
             <p><strong>Disclaimer:</strong> This web site is presented as course work for CS-313 at BYU-Idaho. 

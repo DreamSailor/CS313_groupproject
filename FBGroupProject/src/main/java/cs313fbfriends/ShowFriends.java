@@ -92,7 +92,8 @@ public class ShowFriends extends HttpServlet
                     // Access the connection to the database as established in opener.java
                     Connection myConnection = (Connection)request.getSession().getAttribute("connection");                                    
                   
-                    out.write("<h2>Friends</h2>" );
+                    out.write("<h2>My FriendsData</h2>" );
+                    out.write("Information availble from FaceBook and from this App's Database <p>");
                     out.write("<table style=\'width:100%\'>");
                     out.write("<tr>");
                     out.write("<th>Picture</th>");

@@ -24,19 +24,34 @@
         </header>
         <main> 
             <h2>Introduction</h2>
-            <p>This app will help you and your Facebook friends share profile  
-                data that exists on Facebook, but is not easily transfered.</p>
+            <p>This Facebook Application will help you and your Facebook friends share profile  
+                data that exists on Facebook, but may not be visible.  </p>
+            <p class="warning">Please read the App Store information below before logging in.</p>
             <div> 
                 <p><a href="SignIn"><img src="facebook-login-button.png"></a></p>
             </div> 
 
-            <h2>How it works</h2>
-            <p>Just login to Facebook through our link (above) and you will authorize this 
-                app to organize your friends' information. After login, you will be given the  
-                opportunity to input the information you want to share with your friends. Then 
-                when your friends login using the app, your information will be shared with them.</p>
-            <p><strong>To demonstrate the app</strong>, use any of the following logins - <br /> <br />
-                <strong>Users:</strong> <br />
+            <h2>App Store Information</h2>
+            <P>In April 2015 Facebook started limiting applications ability to find data about your friends.
+                They also require friends to "accept" a given app before they will display data.
+                Our applications allows friends to share their contact information with each other outside of
+                Facebook.
+                
+            <p>Login to Facebook through the link (above) and you will authorize this 
+                application to share information with your friends.   After login, you will be given the  
+                opportunity to input the additonal information you want to share with your friends. Then 
+                when your friends login using the app, your information will be visible to them.</p>
+            
+            <p class="warning">Login Accounts</p>
+            <p>As noted above, you will only see Friends information if they have ALSO accepted our application.
+                Since this is a class assignment and since most of us in this class are not "friends" on facebook,
+                we have created a set of "test" users that are already friends with each other.   This is done via 
+                Facebook's developer site.  
+            <p>If you login with your own Facebook profile and NOT one of the test users, you will see nothing, 
+            because none of your friends will have previously accepted our application.</p>
+            
+            <p class='warning'>To demonstrate the functionality of this app please login with and of the following logins:<p /> <br />
+                <strong>User Email:</strong> <br />
                 mark_nsxtvtw_warmanwitz@tfbnw.net <br />
                 karen_rnoccko_qinson@tfbnw.net <br />
                 bob_bqtpczr_wongwitz@tfbnw.net <br />
@@ -64,7 +79,7 @@
                 login with that friend's name. Check to see if your input information is shared. </p>
 
             <h2>Contact Us</h2>
-            <p>Your feedback is valuable to us. Please email us at <a href="index.jsp">friends.app@mvp.com</a></p>
+            <p>Your feedback is valuable to us. Please leave a comment in our discussion thread for week 14</p>
             <br />
             <br />
         </main> 

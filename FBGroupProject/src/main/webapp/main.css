@@ -175,3 +175,8 @@ table, th, td {
     border-collapse: collapse; 
     padding: 5px;
 }
+
+.warning { 
+    color: red;
+    font-weight: bold;
+}
