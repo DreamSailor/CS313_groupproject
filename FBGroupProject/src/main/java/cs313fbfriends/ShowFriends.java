@@ -92,7 +92,7 @@ public class ShowFriends extends HttpServlet
                     // Access the connection to the database as established in opener.java
                     Connection myConnection = (Connection)request.getSession().getAttribute("connection");                                    
                   
-                    out.write("<h2>My Friend's Data</h2>" );
+                    out.write("<h2>Friends' Information</h2>" );
                     out.write("<table style=\'width:100%\'>");
                     out.write("<tr>");
                     out.write("<th>Profile Picture*</th>");
