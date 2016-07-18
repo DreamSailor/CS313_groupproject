@@ -93,8 +93,9 @@ public class ShowFriends extends HttpServlet
                     Connection myConnection = (Connection)request.getSession().getAttribute("connection");                                    
                   
                     out.write("<h2>Friends' Information</h2>" );
-                    out.write("<table style=\'width:100%\'>");
-                    out.write("<tr>");
+//                    out.write("<table style=\'width:100%\'>");
+                    out.write("<table  style=\"border:none; width:100%\">");
+/*                    out.write("<tr>");
                     out.write("<th>Profile Picture*</th>");
                     out.write("<th>Name</th>");
                     out.write("<th>Phone</th>");
@@ -102,7 +103,7 @@ public class ShowFriends extends HttpServlet
                     out.write("<th>Birthday*</th>");
                     out.write("<th>Address</th>");
                     out.write("</tr>");
-                    // For each friend...
+*/                    // For each friend...
                     for (Friend friend : list) 
                     { 
                        String friendID = friend.getId();                      //Get the current Facebook Friend ID
@@ -137,25 +138,48 @@ public class ShowFriends extends HttpServlet
                             if (address.equals("")){
                                 address = "...";
                             }
- 
+                            
+                            // Display the phone number in format (xxx) xxx-xxxx
+                            if (phone_number.length() == 10) {
+                                phone_number = "(" + phone_number.substring(0,3) + ") " + phone_number.substring(3,6) + "-" + phone_number.substring(6,10);
+                            } else if (phone_number.length() == 7) {
+                                phone_number = phone_number.substring(0,3) + "-" + phone_number.substring(3,7);
+                            }
+
                         }                                                 
                  
                         myStatement.close();                                                                                            
                        
                        //@blake Here is where we need the table added
-                       out.write("<tr>");
+/*                       out.write("<tr>");
                        out.write("<td> <img id=\"picts\" src=\"" + profilePict.getProtocol() + "://" 
                                 + profilePict.getHost() + profilePict.getFile() + "\" height=\"50\" width=\"50\"></td>");
                         out.write("<td>" + friendName + "</td>");
                         out.write("<td>" + phone_number + "</td>");
                         out.write("<td>" + email + "</td>");  
-                        out.write("<td>" + friendBday + "</td>");                                
+                        out.write("<td>" + friendBday + "</td>");                                                        
                         out.write("<td>" + address + "</td>");
                         out.write("</tr>");
 //                                + friendGender + "<br/>"); 
+*/
+                       out.write("<tr>");
+                       out.write("<td rowspan=\"3\" style=\"border:0; width:60px\"> <img id=\"picts\" src=\"" + profilePict.getProtocol() + "://" 
+                                + profilePict.getHost() + profilePict.getFile() + "\" height=\"50\" width=\"50\"></td>");
+                        out.write("<td style=\"font-size:20px\">" + friendName + "</td>");
+                        out.write("<td> Birthday: " + (friendBday != null ? friendBday : " " ) + "</td>");                // So that it doesn't say "null"                        
+                        out.write("</tr>");
+                        out.write("<tr>");                           
+                        out.write("<td> Email: " + email + "</td>");
+                        out.write("<td> Phone: " + phone_number + "</td>");                        
+                        out.write("</tr>");                       
+                        out.write("<tr>");                                                
+                        out.write("<td colspan = \"2\"> Address: " + address + "</td>");
+                        out.write("</tr>");
+                        out.write("<tr height=\"15px\"></tr>");
+
                     }
                     out.write("</table>");
-                    out.write("Field with an * indicate that information came from Facebook other fields come from the application database, assuming your friend has entered it. <p>");
+//                    out.write("Field with an * indicate that information came from Facebook other fields come from the application database, assuming your friend has entered it. <p>");
                     
 
                // myConnection.close();   // Note: Once this is closed, it will not let you access it again until it is created again, if added features require us to access the database again after this point, we may no longer be able to store the connection as a session variable

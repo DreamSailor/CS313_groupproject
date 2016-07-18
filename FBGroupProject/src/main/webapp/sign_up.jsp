@@ -57,28 +57,27 @@
         </header>
         <main>
                 <h1>Provide your contact information</h1>
-                <p>Adding your Phone Number, Email (from Facebook) and Address will allow only your friends to see it.
+                <p>Adding your phone number and address will allow only your friends to see it.
             <div id="indent">
                 <form  action="write_database" method="POST">
                     <input type="hidden" name="fb_id" value="${fbdata.id}">
                     <input type="hidden" name="email" value="${fbdata.email}">
-                    <strong>${fbdata.name}</strong>
-                    <p>
-                    <italic>Retrieved from your FaceBook login</italic><br />
-                    
-                    <strong>E-mail:</strong> ${fbdata.email}<br />
-                    <strong>Birthday:</strong> ${fbdata.birthday}<br />
-                    <p>
-                    <strong>Phone Number:</strong>
-                    <input type="text" name="phone" maxlength="10" value="<%=phone%>" onblur="validatePhone(this.value,'phoneErr')"/> 
-                    <span class="phoneErr" style='color:red; visibility: hidden;'>Please enter only digits (no hyphen or letters)</span>
-                    <br /> <br />
-                     
-                    <strong>Address:</strong><br />
-                    <textarea type="password" name="address" maxlength="255" /><%=address%></textarea><br /><br /> 
-                    <input type="submit" value="Finish" /><button type=button" onclick="skipDBUpdate()">Cancel</button>        
+ <!--                   <strong>${fbdata.name}</strong>  -->
+                    <p>                                       
+                        <strong>E-mail:</strong> ${fbdata.email} <em> *Retrieved from your Facebook login</em><br /><br />
+    <!--                    <strong>Birthday:</strong> ${fbdata.birthday}<br /> -->
+
+                        <strong>Phone Number:</strong> <br />
+                        <input type="text" name="phone" maxlength="10" value="<%=phone%>" onblur="validatePhone(this.value,'phoneErr')"/> 
+                        <span class="phoneErr" style='color:red; visibility: hidden;'>Please enter ten digits (no hyphen or letters)</span>
+                        <br /> <br />
+
+                        <strong>Address:</strong><br />
+                        <textarea type="password" name="address" maxlength="255" style="font-family:Ariel" /><%=address%></textarea><br /><br /> 
+                        <input type="submit" value="Finish" /><button type=button" onclick="skipDBUpdate()">Cancel</button>        
+                    </p>
                 </form>
-                <p>
+                
             </div>
         </main>
         <footer>
