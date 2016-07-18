@@ -27,11 +27,28 @@
                 if((myField.search(/^\s*\d{10}\s*$/)) == 0)
                 {
                     document.getElementsByClassName(thisClass)[0].style.visibility = 'hidden';
+                    document.getElementById("validPhone").value = "valid";
                 }
                 else
+                {
                     document.getElementsByClassName(thisClass)[0].style.visibility = 'visible';
-
+                    document.getElementById("validPhone").value = "invalid";
+                }
             }
+            
+            function readyToSubmit()
+            {                
+                validatePhone(document.getElementById("phoneInput").value, 'phoneErr'); 
+
+                status = document.getElementById("validPhone").value;
+
+                if(status === "valid") {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }      
          </script>
     </head>
     <body>
@@ -62,19 +79,20 @@
                 <form  action="write_database" method="POST">
                     <input type="hidden" name="fb_id" value="${fbdata.id}">
                     <input type="hidden" name="email" value="${fbdata.email}">
+                    <input type="hidden" id="validPhone" value="valid">
  <!--                   <strong>${fbdata.name}</strong>  -->
                     <p>                                       
                         <strong>E-mail:</strong> ${fbdata.email} <em> *Retrieved from your Facebook login</em><br /><br />
     <!--                    <strong>Birthday:</strong> ${fbdata.birthday}<br /> -->
 
                         <strong>Phone Number:</strong> <br />
-                        <input type="text" name="phone" maxlength="10" value="<%=phone%>" onblur="validatePhone(this.value,'phoneErr')"/> 
+                        <input type="text" name="phone" maxlength="10" id="phoneInput" value="<%=phone%>" onblur="validatePhone(this.value,'phoneErr')"/>
                         <span class="phoneErr" style='color:red; visibility: hidden;'>Please enter ten digits (no hyphen or letters)</span>
                         <br /> <br />
 
                         <strong>Address:</strong><br />
-                        <textarea type="password" name="address" maxlength="255" style="font-family:Ariel" /><%=address%></textarea><br /><br /> 
-                        <input type="submit" value="Finish" /><button type=button" onclick="skipDBUpdate()">Cancel</button>        
+                        <textarea type="password" name="address" maxlength="255" style="font-family:Ariel" /><%=address%></textarea><br /><br />
+                        <input type="submit" value="Finish" onclick="return readyToSubmit()"/><button type=button" onclick="skipDBUpdate()">Cancel</button>        
                     </p>
                 </form>
                 
